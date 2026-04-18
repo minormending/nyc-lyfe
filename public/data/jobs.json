@@ -1,0 +1,62 @@
+[
+  {
+    "id": "delivery",
+    "label": "Delivery Driver",
+    "availableTo": ["immigrant"],
+    "weeklyPay": 550,
+    "dailyPay": 78,
+    "energyCostPerShift": 20,
+    "promotionPath": "restaurant_supervisor",
+    "promotionCondition": { "weeks": 12, "minHappiness": 40 }
+  },
+  {
+    "id": "restaurant_supervisor",
+    "label": "Restaurant Supervisor",
+    "availableTo": ["immigrant"],
+    "weeklyPay": 720,
+    "dailyPay": 103,
+    "energyCostPerShift": 25,
+    "promotionPath": null,
+    "promotionCondition": null
+  },
+  {
+    "id": "office_coordinator",
+    "label": "Office Coordinator",
+    "availableTo": ["middle"],
+    "weeklyPay": 850,
+    "dailyPay": 121,
+    "energyCostPerShift": 15,
+    "promotionPath": "project_manager",
+    "promotionCondition": { "weeks": 10, "minClout": 40 }
+  },
+  {
+    "id": "project_manager",
+    "label": "Project Manager",
+    "availableTo": ["middle"],
+    "weeklyPay": 1150,
+    "dailyPay": 164,
+    "energyCostPerShift": 20,
+    "promotionPath": null,
+    "promotionCondition": null
+  },
+  {
+    "id": "junior_associate",
+    "label": "Junior Associate",
+    "availableTo": ["rich"],
+    "weeklyPay": 1400,
+    "dailyPay": 200,
+    "energyCostPerShift": 30,
+    "promotionPath": "senior_associate",
+    "promotionCondition": { "weeks": 10, "minClout": 60 }
+  },
+  {
+    "id": "senior_associate",
+    "label": "Senior Associate",
+    "availableTo": ["rich"],
+    "weeklyPay": 2000,
+    "dailyPay": 286,
+    "energyCostPerShift": 35,
+    "promotionPath": null,
+    "promotionCondition": null
+  }
+]

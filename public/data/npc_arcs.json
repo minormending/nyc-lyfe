@@ -1,0 +1,443 @@
+[
+  {
+    "id": "carlos",
+    "label": "Carlos",
+    "role": "Bodega owner",
+    "accentColor": "#A0522D",
+    "stages": [
+      { "threshold": 0, "relationship": "stranger" },
+      { "threshold": 3, "relationship": "acquaintance" },
+      { "threshold": 6, "relationship": "neighbor" },
+      { "threshold": 9, "relationship": "ally", "unlocks": "carlos_favor" }
+    ],
+    "scenes": [
+      { "stageRequired": 1, "sceneId": "carlos_arc_1" },
+      { "stageRequired": 3, "sceneId": "carlos_arc_2" },
+      { "stageRequired": 6, "sceneId": "carlos_arc_3" },
+      { "stageRequired": 9, "sceneId": "carlos_arc_4" }
+    ],
+    "arcScenes": [
+      {
+        "id": "carlos_arc_1",
+        "background": "bodega_interior",
+        "characters": [
+          { "id": "carlos", "position": "left", "expression": "neutral" },
+          { "id": "player", "position": "right", "expression": "neutral" }
+        ],
+        "dialogue": [
+          { "speaker": "carlos", "text": "Same thing?" },
+          { "speaker": "player", "text": "Same thing." },
+          { "speaker": "carlos", "text": "You've been in here every day this week." },
+          { "speaker": "player", "text": "You're the closest thing to a kitchen I have right now." },
+          { "speaker": "carlos", "text": "That's not good." },
+          { "speaker": "player", "text": "It's fine." },
+          { "speaker": "carlos", "text": "You want hot sauce on that?" },
+          { "speaker": "player", "text": "Yeah." },
+          { "speaker": "carlos", "text": "It's on the house. Don't tell anyone." }
+        ],
+        "choices": null,
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "carlos_arc_2",
+        "background": "bodega_interior",
+        "characters": [
+          { "id": "carlos", "position": "left", "expression": "warm_smile" },
+          { "id": "player", "position": "right", "expression": "happy" }
+        ],
+        "dialogue": [
+          { "speaker": "carlos", "text": "You never told me your name." },
+          { "speaker": "player", "text": "You never asked." },
+          { "speaker": "carlos", "text": "I'm asking now." },
+          { "speaker": "player", "text": "It's —" },
+          { "speaker": "carlos", "text": "Good. I'm Carlos. This is my place. Has been for fourteen years." },
+          { "speaker": "player", "text": "How's business?" },
+          { "speaker": "carlos", "text": "It's a bodega in New York City. It is always business." },
+          { "speaker": "carlos", "text": "You need anything else or are you just here for the cat again?" }
+        ],
+        "choices": null,
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "carlos_arc_3",
+        "background": "bodega_interior",
+        "characters": [
+          { "id": "carlos", "position": "left", "expression": "knowing_look" },
+          { "id": "player", "position": "right", "expression": "neutral" }
+        ],
+        "dialogue": [
+          { "speaker": "carlos", "text": "You know how long this block has been changing?" },
+          { "speaker": "player", "text": "Since before I got here, I'm guessing." },
+          { "speaker": "carlos", "text": "Since before my father got here. Every five years it changes. The faces, the prices, the businesses. Only the building shapes stay." },
+          { "speaker": "player", "text": "Does it bother you?" },
+          { "speaker": "carlos", "text": "Some days. Some days I think — the neighbourhood is the people. Not the buildings. The people keep coming. That part doesn't change." },
+          { "speaker": "carlos", "text": "You're staying, right? You're not one of those two-year people?" },
+          { "speaker": "player", "text": "I don't know yet." },
+          { "speaker": "carlos", "text": "Honest answer. I respect it." }
+        ],
+        "choices": null,
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "carlos_arc_4",
+        "background": "bodega_interior",
+        "characters": [
+          { "id": "carlos", "position": "left", "expression": "knowing_look" },
+          { "id": "player", "position": "right", "expression": "surprised" }
+        ],
+        "dialogue": [
+          { "speaker": "carlos", "text": "Hey. Come here." },
+          { "speaker": "player", "text": "What's wrong?" },
+          { "speaker": "carlos", "text": "Nothing's wrong. A lady came in yesterday — Mrs. Okafor, third floor of the blue building on 34th — she's moving to be near her daughter. Her apartment is up at the end of the month." },
+          { "speaker": "carlos", "text": "It's a one-bedroom. She's been there twelve years. Landlord is old school, hasn't raised the rent in three years." },
+          { "speaker": "carlos", "text": "I told her I might know someone." }
+        ],
+        "choices": [
+          { "label": "Ask Carlos to introduce you", "effects": { "unlock": "better_apartment", "clout": 8, "npc": { "id": "carlos", "delta": 1 } } },
+          { "label": "Thank him but stay where you are", "effects": { "happiness": 10, "clout": 5 } }
+        ],
+        "onComplete": "npcArcComplete"
+      }
+    ]
+  },
+  {
+    "id": "priya",
+    "label": "Priya",
+    "role": "Coworker",
+    "accentColor": "#6090C0",
+    "stages": [
+      { "threshold": 0, "relationship": "stranger" },
+      { "threshold": 3, "relationship": "acquaintance" },
+      { "threshold": 6, "relationship": "colleague" },
+      { "threshold": 9, "relationship": "ally", "unlocks": "priya_favor" }
+    ],
+    "scenes": [
+      { "stageRequired": 1, "sceneId": "priya_arc_1" },
+      { "stageRequired": 3, "sceneId": "priya_arc_2" },
+      { "stageRequired": 6, "sceneId": "priya_arc_3" },
+      { "stageRequired": 9, "sceneId": "priya_arc_4" }
+    ],
+    "arcScenes": [
+      {
+        "id": "priya_arc_1",
+        "background": "bar_interior",
+        "characters": [
+          { "id": "priya", "position": "left", "expression": "neutral" },
+          { "id": "player", "position": "right", "expression": "neutral" }
+        ],
+        "dialogue": [
+          { "speaker": "priya", "text": "So. How long have you been at the company?" },
+          { "speaker": "player", "text": "About a year. Little over." },
+          { "speaker": "priya", "text": "What do you think?" },
+          { "speaker": "player", "text": "Honestly?" },
+          { "speaker": "priya", "text": "I wouldn't ask if I wanted the polished answer." },
+          { "speaker": "player", "text": "It's fine. The work is fine. I thought I'd feel more settled by now." },
+          { "speaker": "priya", "text": "Nobody feels settled. We're just pretending harder each year. Welcome to your thirties." },
+          { "speaker": "player", "text": "That's bleak." },
+          { "speaker": "priya", "text": "It's realistic. Another round?" }
+        ],
+        "choices": [
+          { "label": "Yes, another round", "effects": { "money": -18, "happiness": 15, "npc": { "id": "priya", "delta": 1 } } },
+          { "label": "No, early morning", "effects": { "happiness": 8 } }
+        ],
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "priya_arc_2",
+        "background": "office_openplan",
+        "characters": [
+          { "id": "priya", "position": "left", "expression": "concerned" },
+          { "id": "player", "position": "right", "expression": "neutral" }
+        ],
+        "dialogue": [
+          { "speaker": "priya", "text": "Can I ask you something weird?" },
+          { "speaker": "player", "text": "Go ahead." },
+          { "speaker": "priya", "text": "The Henderson deck — the one I've been working on for three weeks — I need a second pair of eyes. Someone who'll actually tell me if something's off." },
+          { "speaker": "player", "text": "You're asking me?" },
+          { "speaker": "priya", "text": "You're the only one here who doesn't have a political reason to lie to me." },
+          { "speaker": "player", "text": "That's a very specific thing to know about someone." },
+          { "speaker": "priya", "text": "I pay attention." }
+        ],
+        "choices": [
+          { "label": "Look at it tonight and give real feedback", "effects": { "energy": -10, "npc": { "id": "priya", "delta": 2 }, "clout": 5 } },
+          { "label": "Look at it but keep feedback light", "effects": { "energy": -5, "npc": { "id": "priya", "delta": 1 } } },
+          { "label": "Decline — too much on your plate", "effects": { "npc": { "id": "priya", "delta": -1 }, "happiness": -5 } }
+        ],
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "priya_arc_3",
+        "background": "bar_interior",
+        "characters": [
+          { "id": "priya", "position": "left", "expression": "sad" },
+          { "id": "player", "position": "right", "expression": "concerned" }
+        ],
+        "dialogue": [
+          { "speaker": "priya", "text": "I didn't get it." },
+          { "speaker": "player", "text": "The promotion?" },
+          { "speaker": "priya", "text": "They went with David. David who has been here two years less than me and whose main qualification appears to be that he plays golf." },
+          { "speaker": "player", "text": "I'm sorry, Priya." },
+          { "speaker": "priya", "text": "Don't apologise. It's not your fault. I just needed to say it to someone who isn't going to immediately make it about office politics." },
+          { "speaker": "player", "text": "What are you going to do?" },
+          { "speaker": "priya", "text": "I don't know yet. Something. I'm good at what I do. That has to count eventually." },
+          { "speaker": "priya", "text": "Doesn't it?" }
+        ],
+        "choices": [
+          { "label": "Tell her the truth — it should count, and sometimes it doesn't, and that's worth being angry about", "effects": { "npc": { "id": "priya", "delta": 2 }, "happiness": 5 } },
+          { "label": "Encourage her to stay and keep pushing", "effects": { "npc": { "id": "priya", "delta": 1 }, "happiness": 3 } },
+          { "label": "Suggest she start looking elsewhere", "effects": { "npc": { "id": "priya", "delta": 1 }, "clout": 3 } }
+        ],
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "priya_arc_4",
+        "background": "office_openplan",
+        "characters": [
+          { "id": "priya", "position": "left", "expression": "confident" },
+          { "id": "player", "position": "right", "expression": "surprised" }
+        ],
+        "dialogue": [
+          { "speaker": "priya", "text": "I talked to Sarah." },
+          { "speaker": "player", "text": "About?" },
+          { "speaker": "priya", "text": "About you. For the role." },
+          { "speaker": "player", "text": "Priya — I didn't ask you to do that." },
+          { "speaker": "priya", "text": "I know you didn't. That's why it'll land differently than if you had." },
+          { "speaker": "priya", "text": "You've been here, you've done the work. You helped me when you didn't have to. That's the kind of thing I remember. Apparently I'm not the only one." },
+          { "speaker": "player", "text": "What did Sarah say?" },
+          { "speaker": "priya", "text": "She said to make sure you apply properly this time. None of this 'I'll think about it' business." }
+        ],
+        "choices": null,
+        "onComplete": "npcArcComplete"
+      }
+    ]
+  },
+  {
+    "id": "dima",
+    "label": "Dima",
+    "role": "Upstairs neighbor",
+    "accentColor": "#4A7C59",
+    "stages": [
+      { "threshold": 0, "relationship": "stranger" },
+      { "threshold": 3, "relationship": "acquaintance" },
+      { "threshold": 6, "relationship": "neighbor" },
+      { "threshold": 9, "relationship": "ally", "unlocks": "dima_favor" }
+    ],
+    "scenes": [
+      { "stageRequired": 1, "sceneId": "dima_arc_1" },
+      { "stageRequired": 3, "sceneId": "dima_arc_2" },
+      { "stageRequired": 6, "sceneId": "dima_arc_3" },
+      { "stageRequired": 9, "sceneId": "dima_arc_4" }
+    ],
+    "arcScenes": [
+      {
+        "id": "dima_arc_1",
+        "background": "apartment_hallway",
+        "characters": [
+          { "id": "dima", "position": "left", "expression": "amused" },
+          { "id": "player", "position": "right", "expression": "tired" }
+        ],
+        "dialogue": [
+          { "speaker": "dima", "text": "Ah. You knocked." },
+          { "speaker": "player", "text": "It's midnight." },
+          { "speaker": "dima", "text": "Yes." },
+          { "speaker": "player", "text": "The music is very loud." },
+          { "speaker": "dima", "text": "It is Coltrane. You cannot listen to Coltrane quietly. This is known." },
+          { "speaker": "player", "text": "I have work tomorrow." },
+          { "speaker": "dima", "text": "Everyone in New York has work tomorrow. This does not stop Coltrane." },
+          { "speaker": "player", "text": "Could you maybe —" },
+          { "speaker": "dima", "text": "I will turn it down. Slightly. This is my compromise." }
+        ],
+        "choices": [
+          { "label": "Accept the compromise — slightly down is fine", "effects": { "happiness": 5, "npc": { "id": "dima", "delta": 1 } } },
+          { "label": "Hold firm — actually quiet, please", "effects": { "energy": 10, "npc": { "id": "dima", "delta": -1 } } },
+          { "label": "Ask what he's listening to", "effects": { "happiness": 10, "npc": { "id": "dima", "delta": 2 } } }
+        ],
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "dima_arc_2",
+        "background": "apartment_hallway",
+        "characters": [
+          { "id": "dima", "position": "left", "expression": "warm" },
+          { "id": "player", "position": "right", "expression": "neutral" }
+        ],
+        "dialogue": [
+          { "speaker": "dima", "text": "You look tired." },
+          { "speaker": "player", "text": "I am tired." },
+          { "speaker": "dima", "text": "Work?" },
+          { "speaker": "player", "text": "Work. The city. All of it." },
+          { "speaker": "dima", "text": "How long have you been here?" },
+          { "speaker": "player", "text": "Few months." },
+          { "speaker": "dima", "text": "Ah. Still in the hard part. It gets less hard." },
+          { "speaker": "player", "text": "When?" },
+          { "speaker": "dima", "text": "Different for everyone. For me it was the second winter. I stopped fighting it and started just... living in it." },
+          { "speaker": "player", "text": "That's either advice or a threat." },
+          { "speaker": "dima", "text": "With New York it is always both." }
+        ],
+        "choices": null,
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "dima_arc_3",
+        "background": "apartment_hallway",
+        "characters": [
+          { "id": "dima", "position": "left", "expression": "warm" },
+          { "id": "player", "position": "right", "expression": "happy" }
+        ],
+        "dialogue": [
+          { "speaker": "dima", "text": "Saturday. Some people are coming. Friends. We eat, we listen to music, we argue about things that don't matter." },
+          { "speaker": "player", "text": "That sounds like a dinner party." },
+          { "speaker": "dima", "text": "I would never call it that. It is just people in a room. You should come." },
+          { "speaker": "player", "text": "I don't really know anyone you know." },
+          { "speaker": "dima", "text": "Now you do. Bring something if you want. Don't bring something if you don't. Either is acceptable." }
+        ],
+        "choices": [
+          { "label": "Go, bring a bottle of wine", "effects": { "money": -20, "happiness": 25, "clout": 8, "npc": { "id": "dima", "delta": 2 } } },
+          { "label": "Go, bring nothing", "effects": { "happiness": 18, "clout": 5, "npc": { "id": "dima", "delta": 1 } } },
+          { "label": "Skip it — not feeling social", "effects": { "happiness": -5, "npc": { "id": "dima", "delta": -1 } } }
+        ],
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "dima_arc_4",
+        "background": "apartment_hallway",
+        "characters": [
+          { "id": "dima", "position": "left", "expression": "warm" },
+          { "id": "player", "position": "right", "expression": "surprised" }
+        ],
+        "dialogue": [
+          { "speaker": "dima", "text": "I have something for you." },
+          { "speaker": "player", "text": "Should I be concerned?" },
+          { "speaker": "dima", "text": "It is a key. To my apartment." },
+          { "speaker": "player", "text": "...Why?" },
+          { "speaker": "dima", "text": "I travel sometimes. Not often, but sometimes. When I do, the plants need water. The cat needs food. I need someone who will not steal my records." },
+          { "speaker": "player", "text": "You have a cat?" },
+          { "speaker": "dima", "text": "He hides when there are people. You haven't seen him. He has seen you. He likes you. I trust his judgment." }
+        ],
+        "choices": [
+          { "label": "Take the key", "effects": { "unlock": "dima_favor", "happiness": 20, "npc": { "id": "dima", "delta": 1 } } },
+          { "label": "Decline but offer to help when needed", "effects": { "happiness": 15 } }
+        ],
+        "onComplete": "npcArcComplete"
+      }
+    ]
+  },
+  {
+    "id": "jordan",
+    "label": "Jordan",
+    "role": "The broke friend",
+    "accentColor": "#9C5A3C",
+    "stages": [
+      { "threshold": 0, "relationship": "stranger" },
+      { "threshold": 3, "relationship": "acquaintance" },
+      { "threshold": 6, "relationship": "friend" },
+      { "threshold": 9, "relationship": "ally", "unlocks": "jordan_favor" }
+    ],
+    "scenes": [
+      { "stageRequired": 1, "sceneId": "jordan_arc_1" },
+      { "stageRequired": 3, "sceneId": "jordan_arc_2" },
+      { "stageRequired": 6, "sceneId": "jordan_arc_3" },
+      { "stageRequired": 9, "sceneId": "jordan_arc_4" }
+    ],
+    "arcScenes": [
+      {
+        "id": "jordan_arc_1",
+        "background": "bar_interior",
+        "characters": [
+          { "id": "jordan", "position": "left", "expression": "excited" },
+          { "id": "player", "position": "right", "expression": "neutral" }
+        ],
+        "dialogue": [
+          { "speaker": "jordan", "text": "Okay wait, wait — so you know how I've been working on the series?" },
+          { "speaker": "player", "text": "The photo series. Yes." },
+          { "speaker": "jordan", "text": "A gallery in Bushwick wants to see it. Not a definite yes, but a 'we're interested in seeing more.'" },
+          { "speaker": "player", "text": "Jordan, that's actually great." },
+          { "speaker": "jordan", "text": "I know! I know it is. I just need to finish the last twelve photos and get them printed and —" },
+          { "speaker": "player", "text": "How much does printing cost?" },
+          { "speaker": "jordan", "text": "A completely reasonable amount that I currently do not have." },
+          { "speaker": "player", "text": "Of course." }
+        ],
+        "choices": [
+          { "label": "Celebrate first, figure out the money later", "effects": { "happiness": 12, "npc": { "id": "jordan", "delta": 2 } } },
+          { "label": "Celebrate and offer to help them think through the budget", "effects": { "happiness": 10, "npc": { "id": "jordan", "delta": 1 }, "clout": 3 } },
+          { "label": "Point out this has happened before", "effects": { "npc": { "id": "jordan", "delta": -1 }, "happiness": -5 } }
+        ],
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "jordan_arc_2",
+        "background": "apartment_night",
+        "characters": [
+          { "id": "jordan", "position": "left", "expression": "sheepish" },
+          { "id": "player", "position": "right", "expression": "tired" }
+        ],
+        "dialogue": [
+          { "speaker": "jordan", "text": "are you up" },
+          { "speaker": "player", "text": "Jordan it's 2am." },
+          { "speaker": "jordan", "text": "okay so that's technically a yes" },
+          { "speaker": "jordan", "text": "i got rejected from the grant. the big one." },
+          { "speaker": "player", "text": "I'm sorry." },
+          { "speaker": "jordan", "text": "i really thought this was the one. i had a whole plan." },
+          { "speaker": "player", "text": "I know you did." },
+          { "speaker": "jordan", "text": "does it ever get less — like. does it stop feeling like you're building something and someone just keeps knocking it over?" },
+          { "speaker": "player", "text": "Sometimes it stops. Sometimes you just get better at building." },
+          { "speaker": "jordan", "text": "that's either inspirational or very sad" },
+          { "speaker": "player", "text": "Yeah." }
+        ],
+        "choices": [
+          { "label": "Stay up and talk", "effects": { "energy": -15, "happiness": 10, "npc": { "id": "jordan", "delta": 2 } } },
+          { "label": "Send a voice note and go back to sleep", "effects": { "energy": -3, "happiness": 5, "npc": { "id": "jordan", "delta": 1 } } },
+          { "label": "Reply in the morning", "effects": { "npc": { "id": "jordan", "delta": -1 }, "happiness": -5 } }
+        ],
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "jordan_arc_3",
+        "background": "bar_interior",
+        "characters": [
+          { "id": "jordan", "position": "left", "expression": "excited" },
+          { "id": "player", "position": "right", "expression": "happy" }
+        ],
+        "dialogue": [
+          { "speaker": "jordan", "text": "It's happening. The show. It's actually happening." },
+          { "speaker": "player", "text": "When?" },
+          { "speaker": "jordan", "text": "Six weeks. The gallery confirmed. It's a group show but I have the whole east wall." },
+          { "speaker": "player", "text": "Jordan." },
+          { "speaker": "jordan", "text": "I know. I know. Don't make me cry in this bar." },
+          { "speaker": "player", "text": "I'm not doing anything." },
+          { "speaker": "jordan", "text": "You're doing that face." },
+          { "speaker": "player", "text": "What face?" },
+          { "speaker": "jordan", "text": "The face that means you're actually happy for me. It's a good face. Stop it." }
+        ],
+        "choices": [
+          { "label": "Go to the opening", "effects": { "happiness": 25, "clout": 8, "npc": { "id": "jordan", "delta": 2 } } },
+          { "label": "Help them promote it on social", "effects": { "clout": 10, "happiness": 15, "npc": { "id": "jordan", "delta": 1 } } }
+        ],
+        "onComplete": "npcArcComplete"
+      },
+      {
+        "id": "jordan_arc_4",
+        "background": "park_exterior",
+        "characters": [
+          { "id": "jordan", "position": "left", "expression": "grateful" },
+          { "id": "player", "position": "right", "expression": "surprised" }
+        ],
+        "dialogue": [
+          { "speaker": "jordan", "text": "So. I sold a piece." },
+          { "speaker": "player", "text": "From the show?" },
+          { "speaker": "jordan", "text": "From the show. A collector came in on the second day. She bought the big one — the one I almost didn't include because I thought it was too personal." },
+          { "speaker": "player", "text": "That's the best kind to sell." },
+          { "speaker": "jordan", "text": "She paid twelve hundred dollars." },
+          { "speaker": "player", "text": "Jordan." },
+          { "speaker": "jordan", "text": "I know. And — here." },
+          { "speaker": "player", "text": "What is this?" },
+          { "speaker": "jordan", "text": "It's the two hundred I owe you. Plus forty. The forty is interest. I know you didn't ask for interest. I'm charging it anyway." },
+          { "speaker": "player", "text": "You don't have to —" },
+          { "speaker": "jordan", "text": "I want to. You believed in me when I didn't have a very good track record of deserving it. That's worth forty dollars." }
+        ],
+        "choices": null,
+        "onComplete": "npcArcComplete"
+      }
+    ]
+  }
+]

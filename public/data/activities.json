@@ -1,0 +1,146 @@
+[
+  {
+    "id": "gym",
+    "label": "Hit the gym",
+    "slotCost": 1,
+    "energyCost": 20,
+    "effects": { "energy": 15 },
+    "effectDelay": "nextWeek",
+    "unlockRequired": null,
+    "flavorCompleted": "You went. You didn't want to. You went anyway. The not-wanting-to didn't matter.",
+    "flavorSkipped": "You were going to go. The intention was there. The rest of you wasn't."
+  },
+  {
+    "id": "running",
+    "label": "Run outside",
+    "slotCost": 1,
+    "energyCost": 15,
+    "effects": { "energy": 10 },
+    "effectDelay": "nextWeek",
+    "unlockRequired": "running",
+    "flavorCompleted": "Out before most of the city. The pavement, the cold air, the sense that you are, improbably, a person who runs.",
+    "flavorSkipped": "You set the alarm. You turned it off. You do not currently run."
+  },
+  {
+    "id": "cook_at_home",
+    "label": "Cook at home",
+    "slotCost": 1,
+    "energyCost": 10,
+    "effects": { "happiness": 8, "money": 15 },
+    "effectDelay": "immediate",
+    "unlockRequired": null,
+    "flavorCompleted": "You made something real. It didn't take long and it was yours and that meant something.",
+    "flavorSkipped": "The groceries sat in the fridge. They always mean well."
+  },
+  {
+    "id": "order_delivery",
+    "label": "Order delivery",
+    "slotCost": 1,
+    "energyCost": 0,
+    "effects": { "money": -30, "happiness": 5 },
+    "effectDelay": "immediate",
+    "unlockRequired": null,
+    "flavorCompleted": "The app promised 35 minutes. It was 52. The food was warm. A wash.",
+    "flavorSkipped": null
+  },
+  {
+    "id": "go_out",
+    "label": "Go out",
+    "slotCost": 1,
+    "energyCost": 20,
+    "effects": { "happiness": 18, "clout": 5, "money": -45 },
+    "effectDelay": "immediate",
+    "unlockRequired": null,
+    "flavorCompleted": "You spent more than you meant to. You stayed out later than planned. The night earned it.",
+    "flavorSkipped": "The plans were real. So was the couch."
+  },
+  {
+    "id": "museum",
+    "label": "Museum visit",
+    "slotCost": 1,
+    "energyCost": 10,
+    "effects": { "happiness": 15, "clout": 5 },
+    "effectDelay": "immediate",
+    "unlockRequired": null,
+    "flavorCompleted": "You stood in front of one painting for a long time. You didn't read the card. You didn't need to.",
+    "flavorSkipped": "Free Fridays come every week. So does not going."
+  },
+  {
+    "id": "extra_shift",
+    "label": "Extra shift",
+    "slotCost": 1,
+    "energyCost": 25,
+    "effects": { "money": 120 },
+    "effectDelay": "immediate",
+    "unlockRequired": null,
+    "flavorCompleted": "Another day in. The city doesn't care. Your bank account cares a little.",
+    "flavorSkipped": "You said you'd pick up the extra shift. You did not."
+  },
+  {
+    "id": "freelance_hustle",
+    "label": "Freelance hustle",
+    "slotCost": 1,
+    "energyCost": 20,
+    "effects": { "money": 150 },
+    "effectDelay": "immediate",
+    "unlockRequired": "freelance",
+    "flavorCompleted": "Four hours. Headphones in. The work got done. You know what you're doing. Sometimes that's enough.",
+    "flavorSkipped": "The invoice is still a draft. The draft is still open. You will get to it."
+  },
+  {
+    "id": "rest",
+    "label": "Rest",
+    "slotCost": 1,
+    "energyCost": -30,
+    "effects": { "energy": 30 },
+    "effectDelay": "immediate",
+    "unlockRequired": null,
+    "flavorCompleted": "You did nothing. You watched something. You let your brain find its edges and fall back from them. You needed this.",
+    "flavorSkipped": null
+  },
+  {
+    "id": "social_hangout",
+    "label": "Social hangout",
+    "slotCost": 1,
+    "energyCost": 15,
+    "effects": { "happiness": 12, "clout": 3 },
+    "effectDelay": "immediate",
+    "unlockRequired": null,
+    "flavorCompleted": "You were around people you chose. That counts for something this week.",
+    "flavorSkipped": "You said maybe. Maybe turned into no. It often does."
+  },
+  {
+    "id": "freelance_website",
+    "label": "Website project",
+    "slotCost": 2,
+    "energyCost": 30,
+    "effects": { "money": 250 },
+    "effectDelay": "immediate",
+    "unlockRequired": "freelance",
+    "flavorCompleted": "The site is live. Carlos's cousin is pleased. The invoice is paid. This is how it's supposed to work.",
+    "flavorSkipped": "The project sits half-finished. The deadline is still out there, waiting."
+  },
+  {
+    "id": "apartment_hunting",
+    "label": "Apartment hunting",
+    "slotCost": 1,
+    "energyCost": 20,
+    "effects": { "clout": 3 },
+    "effectDelay": "immediate",
+    "unlockRequired": "apartment_hunting",
+    "flavorCompleted": "You looked at listings for two hours. One was perfect and gone. One was available and you know why.",
+    "flavorSkipped": "You opened the app. You closed the app. Tomorrow."
+  },
+  {
+    "id": "work",
+    "label": "Work",
+    "slotCost": 1,
+    "energyCost": 0,
+    "effects": {},
+    "effectDelay": "immediate",
+    "unlockRequired": null,
+    "flavorCompleted": null,
+    "flavorSkipped": null,
+    "isWork": true
+  }
+]

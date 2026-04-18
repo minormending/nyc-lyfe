@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYC: Slice of Life</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/vne.css">
+  <link rel="stylesheet" href="./css/ui.css">
+</head>
+<body>
+  <!-- Persistent HUD (hidden during VNE/title/creation) -->
+  <header id="hud" class="hud hud--hidden" aria-label="Game status">
+    <div class="hud__left">
+      <span class="hud__week" id="hud-week">WEEK 01</span>
+      <span class="hud__neighborhood" id="hud-neighborhood"></span>
+    </div>
+    <div class="hud__stats" id="hud-stats">
+      <div class="stat-bar" data-stat="money">
+        <span class="stat-bar__icon" aria-hidden="true"></span>
+        <span class="stat-bar__label">$</span>
+        <div class="stat-bar__track">
+          <div class="stat-bar__fill" id="stat-fill-money"></div>
+        </div>
+        <span class="stat-bar__value" id="stat-value-money">0</span>
+      </div>
+      <div class="stat-bar" data-stat="energy">
+        <span class="stat-bar__icon" aria-hidden="true"></span>
+        <span class="stat-bar__label">ENERGY</span>
+        <div class="stat-bar__track">
+          <div class="stat-bar__fill" id="stat-fill-energy"></div>
+        </div>
+        <span class="stat-bar__value" id="stat-value-energy">0</span>
+      </div>
+      <div class="stat-bar" data-stat="happiness">
+        <span class="stat-bar__icon" aria-hidden="true"></span>
+        <span class="stat-bar__label">HAPPY</span>
+        <div class="stat-bar__track">
+          <div class="stat-bar__fill" id="stat-fill-happiness"></div>
+        </div>
+        <span class="stat-bar__value" id="stat-value-happiness">0</span>
+      </div>
+      <div class="stat-bar" data-stat="clout">
+        <span class="stat-bar__icon" aria-hidden="true"></span>
+        <span class="stat-bar__label">CLOUT</span>
+        <div class="stat-bar__track">
+          <div class="stat-bar__fill" id="stat-fill-clout"></div>
+        </div>
+        <span class="stat-bar__value" id="stat-value-clout">0</span>
+      </div>
+    </div>
+    <div class="hud__right">
+      <button class="hud__help" id="hud-help-btn" aria-label="How to Play">?</button>
+      <button class="hud__settings" id="hud-settings-btn" aria-label="Settings">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke="currentColor" stroke-width="2"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- localStorage warning banner (shown only if localStorage is unavailable) -->
+  <div id="storage-warning" class="storage-warning storage-warning--hidden" role="alert">
+    Your browser does not support local storage. Progress cannot be saved this session.
+  </div>
+
+  <!-- Main app container — only one screen is visible at a time -->
+  <main id="app">
+    <div id="screen-title" class="screen"></div>
+    <div id="screen-creation" class="screen"></div>
+    <div id="screen-digest" class="screen"></div>
+    <div id="screen-inbox" class="screen"></div>
+    <div id="screen-planner" class="screen"></div>
+    <div id="screen-explore" class="screen"></div>
+    <div id="screen-ending" class="screen"></div>
+  </main>
+
+  <!-- VNE overlay — mounts over everything when a scene plays -->
+  <div id="vne-container" class="vne-container vne-container--hidden" aria-live="polite"></div>
+
+  <!-- Settings modal -->
+  <div id="settings-modal" class="settings-modal settings-modal--hidden" role="dialog" aria-modal="true" aria-label="Settings">
+    <div class="settings-modal__panel">
+      <h2 class="settings-modal__title">SETTINGS</h2>
+      <div class="settings-modal__row">
+        <label class="settings-modal__label" for="text-speed-slider">Text Speed</label>
+        <input type="range" id="text-speed-slider" class="settings-modal__slider"
+               min="10" max="100" step="5" value="28" aria-label="Text speed in characters per second">
+        <span class="settings-modal__slider-value" id="text-speed-value">28</span>
+      </div>
+      <div class="settings-modal__row">
+        <button class="btn-danger" id="reset-game-btn">RESET GAME</button>
+      </div>
+      <div class="settings-modal__row settings-modal__row--version">
+        <span class="settings-modal__version" id="settings-version">v1.0.0</span>
+      </div>
+      <button class="settings-modal__close" id="settings-close-btn" aria-label="Close settings">✕</button>
+    </div>
+  </div>
+
+  <!-- Stat delta floaters (injected by main.js) -->
+  <div id="delta-container" class="delta-container" aria-hidden="true"></div>
+
+  <!-- Coach tutorial overlay -->
+  <div id="coach-overlay" class="coach-overlay coach-overlay--hidden" role="dialog" aria-modal="true" aria-label="Game tip">
+    <div class="coach-overlay__panel">
+      <div class="coach-overlay__header">
+        <span class="coach-overlay__title" id="coach-title"></span>
+        <span class="coach-overlay__step" id="coach-step"></span>
+      </div>
+      <div class="coach-overlay__body" id="coach-body"></div>
+      <button class="btn-primary coach-overlay__btn" id="coach-dismiss">GOT IT</button>
+    </div>
+  </div>
+
+  <!-- Codex (How to Play) modal -->
+  <div id="codex-modal" class="codex-modal codex-modal--hidden" role="dialog" aria-modal="true" aria-label="How to Play">
+    <div class="codex-modal__panel" id="codex-panel"></div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

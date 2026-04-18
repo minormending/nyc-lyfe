@@ -1,0 +1,50 @@
+[
+  {
+    "id": "immigrant",
+    "label": "The Grinder",
+    "subtitle": "You came here with a plan and a small suitcase.",
+    "colorKey": "immigrant",
+    "startingStats": {
+      "money": 800,
+      "energy": 85,
+      "happiness": 28,
+      "clout": 5
+    },
+    "startingJob": "delivery",
+    "specialStat": "resilience",
+    "specialDescription": "Negative events deal 30% reduced stat impact.",
+    "unlocks": ["favor_currency"]
+  },
+  {
+    "id": "middle",
+    "label": "The Ladder",
+    "subtitle": "You moved here for the opportunity. You're still looking for it.",
+    "colorKey": "middle",
+    "startingStats": {
+      "money": 2200,
+      "energy": 70,
+      "happiness": 32,
+      "clout": 15
+    },
+    "startingJob": "office_coordinator",
+    "specialStat": "network",
+    "specialDescription": "Clout gains are increased by 20% on all events.",
+    "unlocks": []
+  },
+  {
+    "id": "rich",
+    "label": "The Legacy",
+    "subtitle": "The city is your playground. You just have to learn its rules.",
+    "colorKey": "rich",
+    "startingStats": {
+      "money": 8000,
+      "energy": 60,
+      "happiness": 25,
+      "clout": 30
+    },
+    "startingJob": "junior_associate",
+    "specialStat": "safety_net",
+    "specialDescription": "Money never drops below $500. A safety transfer appears when needed.",
+    "unlocks": ["premium_network"]
+  }
+]

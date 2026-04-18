@@ -1,0 +1,245 @@
+[
+  {
+    "id": "opp_sublet_offer",
+    "deck": "opportunity",
+    "title": "Sublet Offer",
+    "teaser": "A message from someone in your contacts — subletting their place in Williamsburg for four months.",
+    "eligibility": { "classes": ["all"], "minWeek": 8 },
+    "weight": 0.8,
+    "cooldownWeeks": null,
+    "oneTime": true,
+    "ttlDays": 3,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "A message from someone in your contacts — not a close friend, an acquaintance, the kind you have a dozen of in this city. They're subletting their place in Williamsburg for four months while they do something in Europe." },
+      { "speaker": "narrator", "text": "It's not cheap, but it's below market. The photos show a real living room. A kitchen with counter space. A neighborhood with a coffee shop you've been to once and liked." },
+      { "speaker": "narrator", "text": "They need to know by Friday." }
+    ],
+    "choices": [
+      { "label": "Take the sublet — make the move", "effects": { "neighborhoodTemp": { "id": "williamsburg", "weeks": 4 }, "money": -400, "clout": 10, "happiness": 12 } },
+      { "label": "Pass — the timing isn't right", "effects": { "happiness": -5, "log": "Let the Williamsburg thing go." } },
+      { "label": "Ask for the weekend to think about it", "effects": { "happiness": -3, "clout": 2 } }
+    ]
+  },
+  {
+    "id": "opp_recruiter_ping",
+    "deck": "opportunity",
+    "title": "Recruiter Ping",
+    "teaser": "A recruiter connected with you on LinkedIn. This happens. You usually ignore it.",
+    "eligibility": { "classes": ["all"], "minWeek": 6 },
+    "weight": 1.0,
+    "cooldownWeeks": 10,
+    "ttlDays": 5,
+    "background": "office_openplan",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "A recruiter connected with you on LinkedIn. This happens. You usually ignore it." },
+      { "speaker": "narrator", "text": "But you looked at this one. The company is real. The role is a step up. The salary range listed is more than you're making now — more than you expected." },
+      { "speaker": "narrator", "text": "You've been at your current job for a while. You've had the thought. This might be the thing that answers it." }
+    ],
+    "choices": [
+      { "label": "Reply and schedule a call", "effects": { "clout": 5, "unlock": "job_interview", "happiness": 8 } },
+      { "label": "Ignore it — not the right time", "effects": { "happiness": -3, "log": "Let that one go." } },
+      { "label": "Look into the company first, then decide", "effects": { "clout": 3, "happiness": 5 } }
+    ]
+  },
+  {
+    "id": "opp_side_hustle_blows_up",
+    "deck": "opportunity",
+    "title": "Side Hustle Takes Off",
+    "teaser": "A client shared your work. That client's network is much bigger than your client.",
+    "eligibility": { "classes": ["all"], "minWeek": 6, "requiresUnlock": "freelance" },
+    "weight": 0.9,
+    "cooldownWeeks": null,
+    "ttlDays": null,
+    "background": "apartment_night",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "A client shared your work. That client's network is much bigger than your client." },
+      { "speaker": "narrator", "text": "Your inbox has four new enquiries. Three of them look legitimate. One is offering a budget that makes you read it twice." },
+      { "speaker": "narrator", "text": "This is the moment. You either scale up and take on more than feels comfortable, or you keep it manageable and leave money on the table." }
+    ],
+    "choices": [
+      { "label": "Take all the work — grind season", "effects": { "moneyOverWeeks": { "amount": 600, "weeks": 4 }, "energyDebuff": { "delta": -20, "weeks": 4 }, "happiness": -10 } },
+      { "label": "Take one good client, decline the rest", "effects": { "moneyOverWeeks": { "amount": 250, "weeks": 3 }, "energyDebuff": { "delta": -10, "weeks": 3 }, "happiness": 5 } },
+      { "label": "Take a breath and set up a waitlist", "effects": { "clout": 12, "money": 150, "energy": -5 } }
+    ]
+  },
+  {
+    "id": "opp_friend_money",
+    "deck": "opportunity",
+    "title": "Friend Asks to Borrow Money",
+    "teaser": "Jordan has that energy. You know what this conversation is.",
+    "eligibility": { "classes": ["all"], "minWeek": 4 },
+    "weight": 1.1,
+    "cooldownWeeks": 12,
+    "ttlDays": 2,
+    "background": "bar_interior",
+    "characters": [
+      { "id": "jordan", "position": "left", "expression": "sheepish" },
+      { "id": "player", "position": "right", "expression": "neutral" }
+    ],
+    "dialogue": [
+      { "speaker": "jordan", "text": "Okay so. You know how I had that thing lined up?" },
+      { "speaker": "player", "text": "The thing with the gallery?" },
+      { "speaker": "jordan", "text": "The thing with the gallery. Yeah. So it's happening, it's definitely happening, but there's a materials cost that I didn't fully account for and I'm like — two hundred short." },
+      { "speaker": "player", "text": "Jordan." },
+      { "speaker": "jordan", "text": "I know. I know. I would not be asking if I had literally any other option. I have looked at every other option. This is the only option." },
+      { "speaker": "jordan", "text": "I will pay you back by the end of the month." }
+    ],
+    "choices": [
+      { "label": "Lend the $200", "effects": { "money": -200, "npc": { "id": "jordan", "delta": 2 }, "happiness": 5 } },
+      { "label": "Lend $100 — half now, half when you have it", "effects": { "money": -100, "npc": { "id": "jordan", "delta": 1 }, "happiness": 3 } },
+      { "label": "Decline — you can't right now", "effects": { "npc": { "id": "jordan", "delta": -1 }, "happiness": -8 } }
+    ]
+  },
+  {
+    "id": "opp_goes_viral",
+    "deck": "opportunity",
+    "title": "Viral Moment",
+    "teaser": "That thing you posted — the one you didn't think twice about — has 40,000 views.",
+    "eligibility": { "classes": ["all"], "minWeek": 5 },
+    "weight": 0.6,
+    "cooldownWeeks": 20,
+    "ttlDays": null,
+    "background": "street_corner",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "That thing you posted — the one you didn't think twice about — has 40,000 views." },
+      { "speaker": "narrator", "text": "This is the internet. There's no logic. Someone shared it. Someone else shared that. Now your notifications are a sound like a distant waterfall and people are tagging you in things." },
+      { "speaker": "narrator", "text": "This will last approximately 48 hours. The question is what you do with it." }
+    ],
+    "choices": [
+      { "label": "Post a follow-up while the attention is there", "effects": { "clout": 20, "energy": -10, "happiness": 12 } },
+      { "label": "Quietly enjoy it and let it pass", "effects": { "clout": 10, "happiness": 18 } },
+      { "label": "Turn the attention toward something real — promote your work, your hustle", "effects": { "clout": 15, "money": 120, "energy": -15 } }
+    ]
+  },
+  {
+    "id": "opp_family_money",
+    "deck": "opportunity",
+    "title": "Family Needs Money",
+    "teaser": "A message from home. Your mother is being careful with her words.",
+    "eligibility": { "classes": ["immigrant"], "minWeek": 3 },
+    "weight": 1.2,
+    "cooldownWeeks": 8,
+    "ttlDays": 3,
+    "background": "apartment_night",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "A message from home. Your mother is being careful with her words, the way she always is when she doesn't want you to worry." },
+      { "speaker": "narrator", "text": "The car needs a repair. The repair costs more than she has this month. She will figure it out, she says. She always figures it out, she says." },
+      { "speaker": "narrator", "text": "She is not asking." },
+      { "speaker": "narrator", "text": "You know she is asking." }
+    ],
+    "choices": [
+      { "label": "Send the full amount she needs — $350", "effects": { "money": -350, "happiness": 15 } },
+      { "label": "Send what you can right now — $150", "effects": { "money": -150, "happiness": 8 } },
+      { "label": "Call and talk about it, figure out another way", "effects": { "happiness": 5, "energy": -10 } }
+    ]
+  },
+  {
+    "id": "opp_freelance_website",
+    "deck": "opportunity",
+    "title": "Local Business Needs a Website",
+    "teaser": "Carlos leans over the counter. 'Hey. You know computers, right?'",
+    "eligibility": { "classes": ["all"], "minWeek": 5 },
+    "weight": 0.9,
+    "cooldownWeeks": 15,
+    "ttlDays": 4,
+    "background": "bodega_interior",
+    "characters": [
+      { "id": "carlos", "position": "left", "expression": "knowing_look" },
+      { "id": "player", "position": "right", "expression": "neutral" }
+    ],
+    "dialogue": [
+      { "speaker": "carlos", "text": "Hey. You know computers, right?" },
+      { "speaker": "player", "text": "Sort of. Depends what you need." },
+      { "speaker": "carlos", "text": "My cousin's restaurant — two blocks over, the Dominican place — she needs a website. She's been paying this guy four hundred dollars a year for something that looks like it was built in 2007." },
+      { "speaker": "carlos", "text": "She said she'd pay someone to fix it. Five hundred. She wants it to look real." },
+      { "speaker": "player", "text": "...I could take a look at it." },
+      { "speaker": "carlos", "text": "I told her you'd say yes." }
+    ],
+    "choices": [
+      { "label": "Take the job", "effects": { "unlock": "freelance", "moneyOverWeeks": { "amount": 500, "weeks": 2 }, "energy": -15, "clout": 8 } },
+      { "label": "Refer someone else instead", "effects": { "clout": 5, "npc": { "id": "carlos", "delta": 1 } } },
+      { "label": "Decline — not your thing right now", "effects": { "npc": { "id": "carlos", "delta": -1 }, "happiness": -3 } }
+    ]
+  },
+  {
+    "id": "opp_internal_role",
+    "deck": "opportunity",
+    "title": "Coworker Quits, Role Opens Up",
+    "teaser": "Priya catches you in the hallway. 'Did you hear about Marcus?'",
+    "eligibility": { "classes": ["all"], "minWeek": 10 },
+    "weight": 0.8,
+    "cooldownWeeks": null,
+    "oneTime": true,
+    "ttlDays": 5,
+    "background": "office_openplan",
+    "characters": [
+      { "id": "priya", "position": "left", "expression": "confident" },
+      { "id": "player", "position": "right", "expression": "surprised" }
+    ],
+    "dialogue": [
+      { "speaker": "priya", "text": "Did you hear about Marcus?" },
+      { "speaker": "player", "text": "I heard something." },
+      { "speaker": "priya", "text": "He's leaving. Got an offer somewhere else. Which means his role is going to be posted internally before it goes external." },
+      { "speaker": "player", "text": "How do you know all this?" },
+      { "speaker": "priya", "text": "I know things. The point is — you should apply. You'd be good at it. And you'd actually get a real title." },
+      { "speaker": "player", "text": "They'd consider me?" },
+      { "speaker": "priya", "text": "I'd put in a word. If you want me to." }
+    ],
+    "choices": [
+      { "label": "Apply. Let Priya put in the word.", "effects": { "npc": { "id": "priya", "delta": 2 }, "clout": 10, "unlock": "job_promotion" } },
+      { "label": "Apply on your own, no favour", "effects": { "clout": 5, "unlock": "job_promotion" } },
+      { "label": "Don't apply — not ready yet", "effects": { "happiness": -5, "npc": { "id": "priya", "delta": -1 } } }
+    ]
+  },
+  {
+    "id": "opp_gym_closes",
+    "deck": "opportunity",
+    "title": "Gym Closes",
+    "teaser": "There's a sign on the door. A paper sign, printed at home, slightly crooked.",
+    "eligibility": { "classes": ["all"], "minWeek": 1, "requiresRoutineActivity": "gym" },
+    "weight": 1.0,
+    "cooldownWeeks": null,
+    "oneTime": true,
+    "ttlDays": null,
+    "background": "street_corner",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "There's a sign on the door. A paper sign, printed at home, slightly crooked. 'Permanently Closed. Thank you for your support.'" },
+      { "speaker": "narrator", "text": "Your gym is gone. It lasted longer than most, but the rent finally did what rent does in this city." },
+      { "speaker": "narrator", "text": "You had a routine. You had a locker. You knew which treadmill tracked wrong and avoided it. That is all gone now." }
+    ],
+    "choices": [
+      { "label": "Find a new gym immediately — don't break the habit", "effects": { "money": -50, "unlock": "gym_replacement" } },
+      { "label": "Switch to running outside — it's free", "effects": { "unlock": "running" } },
+      { "label": "Take it as a sign to rest for a while", "effects": { "energyDebuff": { "delta": -5, "weeks": 3 } } }
+    ]
+  },
+  {
+    "id": "opp_found_twenty",
+    "deck": "opportunity",
+    "title": "Found $20",
+    "teaser": "On the sidewalk. Just there.",
+    "eligibility": { "classes": ["all"], "minWeek": 1 },
+    "weight": 1.3,
+    "cooldownWeeks": 8,
+    "ttlDays": null,
+    "background": "street_corner",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "On the sidewalk. Just there. A twenty dollar bill, folded once, slightly damp, clearly not claimed by anyone in the immediate vicinity." },
+      { "speaker": "narrator", "text": "You look around. Nothing." },
+      { "speaker": "narrator", "text": "This is yours now. That is how it works." }
+    ],
+    "choices": [
+      { "label": "Pocket it — finder's fee", "effects": { "money": 20, "happiness": 12 } },
+      { "label": "Leave it where it is — someone will need it more", "effects": { "happiness": 15, "clout": 3 } },
+      { "label": "Give it to the person outside the subway entrance", "effects": { "happiness": 20 } }
+    ]
+  }
+]

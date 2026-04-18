@@ -1,0 +1,14 @@
+.git
+.github
+.claude
+docs
+CLAUDE.md
+README.md
+.nojekyll
+*.docx
+node_modules
+dist
+android
+ios
+deploy
+capacitor.config.json

@@ -1,0 +1,330 @@
+/* ============================================================
+   vne.css — Visual Novel Engine styles
+   NYC: Slice of Life
+   ============================================================ */
+
+/* ---- VNE Container ---------------------------------------- */
+.vne-container {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  cursor: pointer;
+}
+
+.vne-container--hidden {
+  display: none;
+}
+
+/* ---- Background ------------------------------------------- */
+.vne-bg {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-night); /* fallback for missing assets */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Narrator mode overlay */
+.vne-bg--narrator-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ---- Scene canvas — fixed 960x540 logical, scales to viewport */
+.vne-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 960px;
+  max-height: 540px;
+  margin: auto;
+  /* Aspect ratio enforced by JS for small viewports */
+}
+
+/* ---- Character portraits ---------------------------------- */
+.vne-portrait {
+  position: absolute;
+  top: 60px;
+  width: 320px;
+  height: 420px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: opacity 200ms, transform 200ms;
+}
+
+.vne-portrait--left  { left: 0; }
+.vne-portrait--right { right: 0; }
+
+.vne-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Portrait placeholder when image missing */
+.vne-portrait__placeholder {
+  width: 180px;
+  height: 240px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.5);
+  margin-top: 60px;
+}
+
+/* Active speaker: full opacity, shifted toward center */
+.vne-portrait--active {
+  opacity: 1;
+}
+
+.vne-portrait--active.vne-portrait--left  { transform: translateX(12px); }
+.vne-portrait--active.vne-portrait--right { transform: translateX(-12px); }
+
+/* Inactive speaker: dimmed, shifted back */
+.vne-portrait--inactive {
+  opacity: 0.4;
+}
+
+.vne-portrait--inactive.vne-portrait--left  { transform: translateX(-12px); }
+.vne-portrait--inactive.vne-portrait--right { transform: translateX(12px); }
+
+/* ---- Dialogue box ----------------------------------------- */
+.vne-dialogue {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: rgba(22, 33, 62, 0.92);
+  border-top: 1px solid rgba(244, 166, 35, 0.3);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* Narrator mode: slightly different dialogue box */
+.vne-dialogue--narrator {
+  background: rgba(10, 10, 20, 0.88);
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Speaker nameplate ------------------------------------ */
+.vne-nameplate {
+  position: absolute;
+  bottom: 150px; /* sits just above dialogue box */
+  left: 20px;
+  background: var(--color-surface);
+  border: 1px solid rgba(244, 166, 35, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 3px 12px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.vne-nameplate--visible {
+  opacity: 1;
+}
+
+/* ---- Dialogue text ---------------------------------------- */
+.vne-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 2.4em;
+}
+
+/* Narrator text: centered, italic, larger */
+.vne-dialogue--narrator .vne-text {
+  font-style: italic;
+  font-size: 16px;
+  text-align: center;
+  max-width: 700px;
+}
+
+/* Line transition */
+.vne-text--fade-in {
+  animation: vne-text-fade-in 100ms ease forwards;
+}
+
+.vne-text--fade-out {
+  animation: vne-text-fade-out 100ms ease forwards;
+}
+
+@keyframes vne-text-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vne-text-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* ---- Advance indicator ------------------------------------ */
+.vne-advance-hint {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-lg);
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  transform: rotate(45deg);
+  animation: vne-bounce 0.8s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.vne-advance-hint--visible {
+  opacity: 0.8;
+}
+
+@keyframes vne-bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50%       { transform: rotate(45deg) translateY(4px); }
+}
+
+/* ---- Choices --------------------------------------------- */
+.vne-choices {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 15, 30, 0.95);
+  border-top: 1px solid rgba(244, 166, 35, 0.3);
+  padding: var(--space-lg) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.vne-choices--hidden {
+  display: none;
+}
+
+.vne-choice {
+  background: rgba(15, 52, 96, 0.6);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 150ms, background 150ms, filter 150ms;
+  opacity: 0;
+}
+
+.vne-choice--visible {
+  opacity: 1;
+  animation: vne-choice-enter 150ms ease forwards;
+}
+
+.vne-choice:hover,
+.vne-choice:focus-visible {
+  border-left-color: var(--color-accent);
+  background: rgba(15, 52, 96, 0.9);
+  filter: brightness(1.15);
+  outline: none;
+}
+
+.vne-choice--selected {
+  border-left-color: var(--color-accent);
+  background: rgba(244, 166, 35, 0.1);
+  filter: brightness(1.3);
+}
+
+.vne-choice__label {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.vne-choice__effects {
+  font-size: 11px;
+  margin-top: 4px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.vne-choice--fading {
+  animation: vne-choice-fade 150ms ease forwards;
+}
+
+@keyframes vne-choice-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vne-choice-fade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* ---- Full-scene fade overlay ------------------------------ */
+.vne-fade {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.vne-fade--in {
+  animation: vne-fade-in 300ms ease forwards;
+}
+
+.vne-fade--out {
+  animation: vne-fade-out 400ms ease forwards;
+}
+
+@keyframes vne-fade-in {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes vne-fade-out {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---- Skip indicator --------------------------------------- */
+.vne-skip-hint {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-lg);
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* ---- Accessibility: screen reader text ------------------- */
+.vne-sr-transcript {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

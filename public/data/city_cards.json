@@ -1,0 +1,451 @@
+[
+  {
+    "id": "city_subway_delay",
+    "deck": "city",
+    "title": "Subway Delay",
+    "teaser": "Signal problems at DeKalb. The whole line is down.",
+    "eligibility": { "classes": ["all"], "minWeek": 1 },
+    "weight": 1.5,
+    "cooldownWeeks": 3,
+    "ttlDays": null,
+    "background": "subway_platform",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "Signal problems at DeKalb. The whole line is down." },
+      { "speaker": "narrator", "text": "The platform fills up fast. Someone has a podcast on too loud. Someone else is eating a full meal out of a Tupperware container. Respect." },
+      { "speaker": "narrator", "text": "The MTA app says 'delays expected.' The MTA app always says delays expected." }
+    ],
+    "choices": [
+      { "label": "Wait it out", "effects": { "energy": -5, "happiness": -5 } },
+      { "label": "Uber it", "effects": { "money": -22 } },
+      { "label": "Walk and show up late", "effects": { "energy": -15, "happiness": -8 } }
+    ]
+  },
+  {
+    "id": "city_rent_increase",
+    "deck": "city",
+    "title": "Rent Increase Notice",
+    "teaser": "There's an envelope under your door. You don't open envelopes anymore.",
+    "eligibility": { "classes": ["all"], "minWeek": 8 },
+    "weight": 0.8,
+    "cooldownWeeks": null,
+    "oneTime": true,
+    "ttlDays": null,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "There's an envelope under your door. You don't open envelopes anymore — nothing good comes in an envelope." },
+      { "speaker": "narrator", "text": "You open it anyway." },
+      { "speaker": "narrator", "text": "Your landlord is raising the rent by $75 a month, effective in 30 days, in compliance with all applicable regulations, he hopes this finds you well." },
+      { "speaker": "narrator", "text": "It does not find you well." }
+    ],
+    "choices": [
+      { "label": "Accept and adjust the budget", "effects": { "rentDeltaPermanent": 75, "happiness": -10 } },
+      { "label": "Write a polite letter asking to negotiate", "effects": { "happiness": -5, "clout": 3, "log": "Sent a polite letter to the landlord. He will not respond." } },
+      { "label": "Start looking for a new place", "effects": { "unlock": "apartment_hunting" } }
+    ]
+  },
+  {
+    "id": "city_roach",
+    "deck": "city",
+    "title": "Roach in the Kitchen",
+    "teaser": "It's 11pm. You went to get a glass of water. You turned on the kitchen light.",
+    "eligibility": { "classes": ["all"], "minWeek": 2 },
+    "weight": 1.0,
+    "cooldownWeeks": 6,
+    "ttlDays": null,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "It's 11pm. You went to get a glass of water. You turned on the kitchen light." },
+      { "speaker": "narrator", "text": "You both froze." },
+      { "speaker": "narrator", "text": "It's a big one. Bold. It doesn't even run. It just looks at you with the energy of someone who has been here much longer than you and plans to stay." }
+    ],
+    "choices": [
+      { "label": "Buy traps and handle it yourself", "effects": { "money": -18, "happiness": -5 } },
+      { "label": "Call the super (he won't come for two weeks)", "effects": { "happiness": -12, "log": "Waiting on super. Again." } },
+      { "label": "Accept it. Name it Gerald.", "effects": { "happiness": 5, "log": "Gerald moved in." } }
+    ]
+  },
+  {
+    "id": "city_bodega_cat",
+    "deck": "city",
+    "title": "Bodega Cat Encounter",
+    "teaser": "You stopped in to grab something for dinner. Then you saw the cat.",
+    "eligibility": { "classes": ["all"], "minWeek": 1 },
+    "weight": 1.2,
+    "cooldownWeeks": 4,
+    "ttlDays": null,
+    "background": "bodega_interior",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "You stopped in to grab something for dinner. The usual." },
+      { "speaker": "narrator", "text": "Then you saw the cat." },
+      { "speaker": "narrator", "text": "It was sitting on top of the chip display like it owned the place, which it did, which it does, which is correct. It looked at you once, decided you were acceptable, and went back to sleep." },
+      { "speaker": "narrator", "text": "You stood there for longer than you meant to. Something loosened in your chest. A little." }
+    ],
+    "choices": [
+      { "label": "Pet the cat and linger", "effects": { "happiness": 15 } },
+      { "label": "Take a photo and keep moving", "effects": { "happiness": 8 } },
+      { "label": "Buy something you didn't need just to stay longer", "effects": { "happiness": 12, "money": -8 } }
+    ]
+  },
+  {
+    "id": "city_street_festival",
+    "deck": "city",
+    "title": "Street Festival",
+    "teaser": "Your block is closed. There's a stage at one end, a row of vendor tables at the other.",
+    "eligibility": { "classes": ["all"], "minWeek": 3 },
+    "weight": 1.0,
+    "cooldownWeeks": 5,
+    "ttlDays": null,
+    "background": "street_corner",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "Your block is closed. There's a stage at one end, a row of vendor tables at the other, and somewhere in the middle a man is doing something with a steel drum that sounds like pure sunlight." },
+      { "speaker": "narrator", "text": "You did not plan for this." },
+      { "speaker": "narrator", "text": "You didn't have plans anyway." }
+    ],
+    "choices": [
+      { "label": "Stay and wander the festival", "effects": { "happiness": 20, "energy": -10 } },
+      { "label": "Buy something from a vendor", "effects": { "happiness": 12, "money": -25 } },
+      { "label": "Find a way around the block closure and keep going", "effects": { "happiness": -5 } }
+    ]
+  },
+  {
+    "id": "city_coned_spike",
+    "deck": "city",
+    "title": "Con Edison Spike",
+    "teaser": "You opened the Con Edison app because you had a bad feeling.",
+    "eligibility": { "classes": ["all"], "minWeek": 4 },
+    "weight": 1.1,
+    "cooldownWeeks": 8,
+    "ttlDays": null,
+    "background": "apartment_night",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "You opened the Con Edison app because you had a bad feeling." },
+      { "speaker": "narrator", "text": "The bad feeling was correct." },
+      { "speaker": "narrator", "text": "Your bill this month is $214. It was $89 last month. The only thing that changed is the temperature, which Con Edison did not cause but has absolutely monetised." }
+    ],
+    "choices": [
+      { "label": "Pay it and move on", "effects": { "money": -214, "happiness": -8 } },
+      { "label": "Investigate and dispute a charge", "effects": { "money": -214, "clout": 5, "log": "Filed a dispute. Con Ed will not care." } },
+      { "label": "Stop using the AC entirely", "effects": { "money": -214, "energyDebuff": { "delta": -10, "weeks": 2 } } }
+    ]
+  },
+  {
+    "id": "city_noise_complaint_you",
+    "deck": "city",
+    "title": "Noise Complaint Filed Against You",
+    "teaser": "There's a notice from building management. Apparently a neighbor filed a noise complaint.",
+    "eligibility": { "classes": ["all"], "minWeek": 5 },
+    "weight": 0.7,
+    "cooldownWeeks": 10,
+    "ttlDays": null,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "There's a notice from building management. Apparently a neighbor filed a noise complaint." },
+      { "speaker": "narrator", "text": "Against you." },
+      { "speaker": "narrator", "text": "You weren't even doing anything. You were watching TV. At a reasonable volume. At 9:30 in the evening." },
+      { "speaker": "narrator", "text": "New York is full of people who moved here and immediately started complaining about the noise." }
+    ],
+    "choices": [
+      { "label": "Apologise and keep it down", "effects": { "happiness": -8, "clout": -3 } },
+      { "label": "File a counter-complaint about THEIR noise", "effects": { "happiness": -5, "clout": -5 } },
+      { "label": "Ignore it completely", "effects": { "happiness": -5 } }
+    ]
+  },
+  {
+    "id": "city_street_art",
+    "deck": "city",
+    "title": "Street Art Appears Overnight",
+    "teaser": "Someone put a mural on the side of the laundromat. Overnight. The whole wall.",
+    "eligibility": { "classes": ["all"], "minWeek": 2 },
+    "weight": 0.9,
+    "cooldownWeeks": 6,
+    "ttlDays": null,
+    "background": "street_corner",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "Someone put a mural on the side of the laundromat. Overnight. The whole wall." },
+      { "speaker": "narrator", "text": "It's a portrait of an older woman with grocery bags, caught mid-stride, looking somewhere just past the frame like she knows exactly where she's going and has always known." },
+      { "speaker": "narrator", "text": "You stand in front of it for a while. You don't know her, but you feel like you might." }
+    ],
+    "choices": [
+      { "label": "Take it in and carry it with you", "effects": { "happiness": 18 } },
+      { "label": "Post it. Share the feeling.", "effects": { "clout": 8, "happiness": 10 } },
+      { "label": "Look up the artist", "effects": { "clout": 5, "happiness": 12, "unlock": "local_art_scene" } }
+    ]
+  },
+  {
+    "id": "city_free_concert",
+    "deck": "city",
+    "title": "Free Concert in the Park",
+    "teaser": "The Parks Department sent a notification. There's a free concert this evening.",
+    "eligibility": { "classes": ["all"], "minWeek": 2 },
+    "weight": 1.0,
+    "cooldownWeeks": 4,
+    "ttlDays": null,
+    "background": "park_exterior",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "The Parks Department sent a notification. There's a free concert this evening. Jazz quartet. Bring a blanket." },
+      { "speaker": "narrator", "text": "You have a blanket. You have nowhere else to be. The city is, unexpectedly, offering you something for free." },
+      { "speaker": "narrator", "text": "This happens sometimes. Not often. But sometimes." }
+    ],
+    "choices": [
+      { "label": "Go. Bring the blanket.", "effects": { "happiness": 22, "energy": -8 } },
+      { "label": "Go for an hour and then leave", "effects": { "happiness": 12, "energy": -5 } },
+      { "label": "Skip it. You're tired.", "effects": { "happiness": -5 } }
+    ]
+  },
+  {
+    "id": "city_nypd_closure",
+    "deck": "city",
+    "title": "NYPD Block Closure",
+    "teaser": "Your usual route is blocked. Six police cars. Caution tape.",
+    "eligibility": { "classes": ["all"], "minWeek": 1 },
+    "weight": 0.9,
+    "cooldownWeeks": 5,
+    "ttlDays": null,
+    "background": "street_corner",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "Your usual route is blocked. Six police cars. Caution tape. An officer is waving everyone around without explanation, which is very on-brand." },
+      { "speaker": "narrator", "text": "People are filming. Some are trying to ask what happened. The officer's face says he has been asked this thirty times and has no interest in being asked a thirty-first." },
+      { "speaker": "narrator", "text": "You take the long way." }
+    ],
+    "choices": [
+      { "label": "Take the long way, observe nothing", "effects": { "energy": -5 } },
+      { "label": "Ask someone nearby what happened", "effects": { "clout": 3 } },
+      { "label": "Film it and post it", "effects": { "clout": 6, "happiness": 3 } }
+    ]
+  },
+  {
+    "id": "city_scaffolding",
+    "deck": "city",
+    "title": "Scaffolding Goes Up",
+    "teaser": "You woke up to the sound of drilling.",
+    "eligibility": { "classes": ["all"], "minWeek": 3 },
+    "weight": 0.7,
+    "cooldownWeeks": null,
+    "oneTime": true,
+    "ttlDays": null,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "You woke up to the sound of drilling." },
+      { "speaker": "narrator", "text": "Workers are installing scaffolding outside your window. They told the building it would take six weeks. It will take eight months. This is how scaffolding works in New York." },
+      { "speaker": "narrator", "text": "Your window now looks into a steel pipe grid. Beyond the grid: a worker eating a sandwich and looking directly into your apartment." },
+      { "speaker": "narrator", "text": "You wave. He waves back. This is your life now." }
+    ],
+    "choices": [
+      { "label": "Accept it — this is New York", "effects": { "happinessDebuff": { "delta": -10, "weeks": 4 } } },
+      { "label": "Buy blackout curtains", "effects": { "money": -45 } },
+      { "label": "Complain to the building", "effects": { "clout": -3 } }
+    ]
+  },
+  {
+    "id": "city_heat_wave",
+    "deck": "city",
+    "title": "Heat Wave",
+    "teaser": "It's 97 degrees. The humidity has a texture.",
+    "eligibility": { "classes": ["all"], "minWeek": 6 },
+    "weight": 0.9,
+    "cooldownWeeks": 8,
+    "ttlDays": null,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "It's 97 degrees. The humidity has a texture. The subway smells like the inside of a gym bag that was left in a hot car." },
+      { "speaker": "narrator", "text": "Your apartment does not have central air. Your window unit is doing its best. Its best is not enough." },
+      { "speaker": "narrator", "text": "The city has opened a cooling center three blocks away. You are 31 years old. You are considering going to a cooling center." }
+    ],
+    "choices": [
+      { "label": "Go to the cooling center — no shame", "effects": { "energy": 15, "happiness": 5 } },
+      { "label": "Survive on iced coffee and denial", "effects": { "money": -30, "energyDebuff": { "delta": -15, "weeks": 1 } } },
+      { "label": "Work from a cafe with AC all day", "effects": { "money": -20, "energy": 10 } }
+    ]
+  },
+  {
+    "id": "city_snowstorm",
+    "deck": "city",
+    "title": "Snowstorm",
+    "teaser": "The forecast said two to four inches. The sky did not read the forecast.",
+    "eligibility": { "classes": ["all"], "minWeek": 10 },
+    "weight": 0.8,
+    "cooldownWeeks": 12,
+    "ttlDays": null,
+    "background": "street_corner",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "The forecast said two to four inches. The sky did not read the forecast." },
+      { "speaker": "narrator", "text": "It is eight inches and still going. The buses are running twenty minutes apart. Everything above 14th Street has a resigned quiet to it — the city, for once, slowing down." },
+      { "speaker": "narrator", "text": "You could work from home. You could also just... look out the window for a while." }
+    ],
+    "choices": [
+      { "label": "Work from home — no commute, full productivity", "effects": { "energy": 10 } },
+      { "label": "Go in anyway — show your face", "effects": { "energy": -20, "clout": 8 } },
+      { "label": "Take a personal day and walk around in the snow", "effects": { "energy": 5, "happiness": 25, "moneyLoseDailyPay": true } }
+    ]
+  },
+  {
+    "id": "city_office_pizza",
+    "deck": "city",
+    "title": "Free Pizza at the Office",
+    "teaser": "There's a 'team lunch' today. Someone senior felt generous, or guilty, or both.",
+    "eligibility": { "classes": ["all"], "minWeek": 2 },
+    "weight": 1.3,
+    "cooldownWeeks": 3,
+    "ttlDays": null,
+    "background": "office_openplan",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "There's a 'team lunch' today. Someone senior felt generous, or guilty, or both." },
+      { "speaker": "narrator", "text": "There are eight pizzas from a place that is either very good or very overhyped — the office is divided. You don't care. It's free pizza." },
+      { "speaker": "narrator", "text": "There is also, somehow, a salad that nobody asked for and nobody will eat." }
+    ],
+    "choices": [
+      { "label": "Eat two slices and get back to work", "effects": { "happiness": 8 } },
+      { "label": "Eat your fill and take a slice for the road", "effects": { "happiness": 15, "clout": 2 } },
+      { "label": "Use the lunch to have a real conversation with a coworker", "effects": { "happiness": 10, "clout": 5 } }
+    ]
+  },
+  {
+    "id": "city_landlord_sells",
+    "deck": "city",
+    "title": "Landlord Sells the Building",
+    "teaser": "A letter this time, not a slip under the door. Formal. Letterhead.",
+    "eligibility": { "classes": ["all"], "minWeek": 12 },
+    "weight": 0.6,
+    "cooldownWeeks": null,
+    "oneTime": true,
+    "ttlDays": null,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "A letter this time, not a slip under the door. Formal. Letterhead." },
+      { "speaker": "narrator", "text": "Your building has been sold to a property management company. Your lease will be honoured. The new owners look forward to a positive relationship with their tenants." },
+      { "speaker": "narrator", "text": "The new owners have a website. The website has a tab called 'Tenant Resources' that leads to a PDF from 2019." },
+      { "speaker": "narrator", "text": "You read the letter three times. You don't feel good about this." }
+    ],
+    "choices": [
+      { "label": "Do nothing and see what happens", "effects": { "happiness": -10, "log": "New landlord. Watching." } },
+      { "label": "Research the property management company", "effects": { "clout": 5, "happiness": -8 } },
+      { "label": "Start quietly looking for other apartments", "effects": { "unlock": "apartment_hunting", "happiness": -5 } }
+    ]
+  },
+  {
+    "id": "city_tourist_directions",
+    "deck": "city",
+    "title": "Tourist Asks for Directions",
+    "teaser": "A couple with matching luggage and a confused energy stops you on the sidewalk.",
+    "eligibility": { "classes": ["all"], "minWeek": 1 },
+    "weight": 1.2,
+    "cooldownWeeks": 4,
+    "ttlDays": null,
+    "background": "street_corner",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "A couple with matching luggage and a confused energy stops you on the sidewalk. They're trying to get to the High Line." },
+      { "speaker": "narrator", "text": "You know where the High Line is. More importantly, you know they're going to get on the wrong train if you just point them toward the station." },
+      { "speaker": "narrator", "text": "This will take thirty seconds or three minutes depending on how you play it." }
+    ],
+    "choices": [
+      { "label": "Give them full directions, patiently", "effects": { "happiness": 8, "clout": 3 } },
+      { "label": "Point them generally in the right direction and keep walking", "effects": { "happiness": 3 } },
+      { "label": "Give directions and recommend your favourite spot nearby", "effects": { "happiness": 10, "clout": 5 } }
+    ]
+  },
+  {
+    "id": "city_power_outage",
+    "deck": "city",
+    "title": "Power Outage",
+    "teaser": "The apartment goes dark at 8:47pm. Not just your apartment — the whole block.",
+    "eligibility": { "classes": ["all"], "minWeek": 5 },
+    "weight": 0.7,
+    "cooldownWeeks": 10,
+    "ttlDays": null,
+    "background": "apartment_night",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "The apartment goes dark at 8:47pm. Not just your apartment — the whole block. Maybe further." },
+      { "speaker": "narrator", "text": "You stand very still for a moment. Your phone says 34% battery. Your fridge is going to be fine for four hours. The candle you bought for aesthetics is now functional." },
+      { "speaker": "narrator", "text": "It's quiet in a way that the city almost never is." },
+      { "speaker": "narrator", "text": "Con Ed's outage map shows your area as a 'known issue.' Estimated restoration: unknown." }
+    ],
+    "choices": [
+      { "label": "Read by candlelight. Lean into it.", "effects": { "happiness": 15, "energy": 10 } },
+      { "label": "Go find somewhere with power (bar, 24-hour diner)", "effects": { "money": -25, "happiness": 8 } },
+      { "label": "Go to sleep early", "effects": { "energy": 25 } }
+    ]
+  },
+  {
+    "id": "city_neighbour_food",
+    "deck": "city",
+    "title": "Neighbour Brings You Food",
+    "teaser": "There's a knock at the door. Your downstairs neighbour is standing in the hall with a covered plate.",
+    "eligibility": { "classes": ["all"], "minWeek": 6 },
+    "weight": 0.8,
+    "cooldownWeeks": 8,
+    "ttlDays": null,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "There's a knock at the door. Your downstairs neighbour — you know her as the one who always has something cooking that smells incredible — is standing in the hall with a covered plate." },
+      { "speaker": "narrator", "text": "She made too much. She always makes too much. Would you like some? It's nothing. It's oxtail and rice and peas and she has been cooking since eleven this morning." },
+      { "speaker": "narrator", "text": "You absolutely would like some." }
+    ],
+    "choices": [
+      { "label": "Accept gratefully and thank her properly", "effects": { "happiness": 25, "energy": 5 } },
+      { "label": "Accept and bring her something back later this week", "effects": { "happiness": 25, "clout": 5, "moneyNextSession": -15 } },
+      { "label": "Decline politely — you already ate", "effects": { "happiness": 8 } }
+    ]
+  },
+  {
+    "id": "city_platform_rat",
+    "deck": "city",
+    "title": "Rat on the Platform",
+    "teaser": "There's a rat on the platform. A good one.",
+    "eligibility": { "classes": ["all"], "minWeek": 1 },
+    "weight": 1.2,
+    "cooldownWeeks": 5,
+    "ttlDays": null,
+    "background": "subway_platform",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "There's a rat on the platform. A good one. Large, confident, carrying half a hot dog bun with both front paws." },
+      { "speaker": "narrator", "text": "It moves along the yellow safety line with the energy of someone who has a meeting to get to." },
+      { "speaker": "narrator", "text": "The tourists are horrified. A kid is delighted. You feel a specific New York emotion that has no name: pride, disgust, recognition, and affection, all at once." }
+    ],
+    "choices": [
+      { "label": "Film it — he deserves to be seen", "effects": { "clout": 5, "happiness": 10 } },
+      { "label": "Watch in companionable silence until your train comes", "effects": { "happiness": 12 } },
+      { "label": "Move to the other end of the platform", "effects": { "happiness": 2 } }
+    ]
+  },
+  {
+    "id": "city_package_delivery",
+    "deck": "city",
+    "title": "Surprise Package Delivery",
+    "teaser": "There's a package outside your door. You didn't order anything.",
+    "eligibility": { "classes": ["all"], "minWeek": 3 },
+    "weight": 1.0,
+    "cooldownWeeks": 6,
+    "ttlDays": null,
+    "background": "apartment_day",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "narrator", "text": "There's a package outside your door. You didn't order anything." },
+      { "speaker": "narrator", "text": "The label has your address but the wrong name. Someone with a similar apartment number two buildings over has your coffee maker, and you have their — you open the box — air fryer." },
+      { "speaker": "narrator", "text": "A very good air fryer. Still in its original packaging." }
+    ],
+    "choices": [
+      { "label": "Track down the real owner and return it", "effects": { "clout": 10, "happiness": 8 } },
+      { "label": "Keep it — finder's fee", "effects": { "happiness": 15 } },
+      { "label": "Leave it in the lobby with a note", "effects": { "happiness": 5, "clout": 3 } }
+    ]
+  }
+]

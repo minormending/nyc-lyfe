@@ -1,0 +1,116 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image_repo: ${{ steps.repo.outputs.lc }}
+      tag: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: repo
+        run: echo "lc=${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & push web
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          build-args: |
+            VITE_BASE_PATH=/nyc-lyfe/
+          tags: |
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lc }}/web:${{ github.sha }}
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lc }}/web:latest
+          cache-from: type=gha,scope=web
+          cache-to: type=gha,mode=max,scope=web
+
+      - name: Scan web image
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          image-ref: ${{ env.REGISTRY }}/${{ steps.repo.outputs.lc }}/web:${{ github.sha }}
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
+          format: sarif
+          output: trivy-web.sarif
+      - name: Upload trivy SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: .
+        continue-on-error: true
+
+  deploy:
+    needs: build-push
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            deploy
+
+      - name: Copy compose to droplet
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          source: "deploy/nyc-lyfe/docker-compose.yml"
+          target: "/opt/apps/nyc-lyfe"
+          strip_components: 2
+
+      - name: Pull & restart on droplet
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          GH_REPO: ${{ needs.build-push.outputs.image_repo }}
+          IMAGE_TAG: ${{ needs.build-push.outputs.tag }}
+          GHCR_USER: ${{ github.actor }}
+          GHCR_TOKEN: ${{ secrets.GHCR_READ_TOKEN }}
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          envs: GH_REPO,IMAGE_TAG,GHCR_USER,GHCR_TOKEN
+          script: |
+            set -euo pipefail
+
+            DOCKER_CONFIG="$(mktemp -d)"
+            export DOCKER_CONFIG
+            trap 'rm -rf "$DOCKER_CONFIG"' EXIT
+
+            echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
+
+            cat > /opt/apps/nyc-lyfe/.env <<EOF
+            GH_REPO=${GH_REPO}
+            IMAGE_TAG=${IMAGE_TAG}
+            EOF
+            chmod 600 /opt/apps/nyc-lyfe/.env
+
+            cd /opt/apps/nyc-lyfe
+            docker compose pull
+            docker compose up -d --remove-orphans
+
+            docker image prune -f

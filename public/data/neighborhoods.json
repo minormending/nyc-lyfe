@@ -1,0 +1,59 @@
+[
+  {
+    "id": "astoria",
+    "label": "Astoria",
+    "borough": "Queens",
+    "weeklyRent": 450,
+    "vibeBonus": { "stat": "energy", "delta": 10, "period": "weekly" },
+    "penalty": { "description": "Clout events appear less frequently.", "flag": "reduced_clout_events" },
+    "flavorText": "You can hear three languages before you reach the bodega.",
+    "neighborhoodObservations": [
+      "The guy at the corner has been selling flowers out of a bucket for as long as anyone can remember. The flowers are always fresh. The guy is always there. Some things are load-bearing.",
+      "There's a smell that travels down 31st Street on Saturday mornings that cannot be named but can only be described as: home.",
+      "The park is full today. Kids, dogs, people sitting with their faces in the sun like they're collecting something.",
+      "Three languages on your walk to the subway. A good start to the morning.",
+      "The diner has had the same menu since 1987. This is not a problem. This is a feature.",
+      "Your upstairs neighbor is playing something. You don't know what it is. It sounds like the end of a long week and the beginning of a good one.",
+      "Queens knows something that Manhattan pretends not to need. It's harder to name than to feel.",
+      "The new cafe on Steinway is either the best thing to happen to this block or the beginning of the end. Probably both."
+    ]
+  },
+  {
+    "id": "williamsburg",
+    "label": "Williamsburg",
+    "borough": "Brooklyn",
+    "weeklyRent": 750,
+    "vibeBonus": { "stat": "clout", "delta": 8, "period": "weekly" },
+    "penalty": { "description": "Energy costs for going out are 10% higher.", "flag": "high_energy_social" },
+    "flavorText": "Everyone here is working on something. So are you, probably.",
+    "neighborhoodObservations": [
+      "Someone is definitely filming something. Two people with camera equipment, a man with very deliberate hair, a ring light at 11am. The city as backdrop.",
+      "The coffee here is excellent and costs as much as a small meal. You ordered it anyway. It was worth it. You can't afford to admit that.",
+      "A vintage store is having a sale. You went in for one thing. You're leaving with a different thing. This is how Williamsburg works.",
+      "The rooftops here have a specific energy in the early evening. Golden hour, water towers, the Manhattan skyline doing what it does. It's almost irritating how beautiful it is.",
+      "Someone is playing guitar in McCarren Park. Not performing — just playing. For themselves, for no one, for the afternoon.",
+      "Three new restaurants have opened on your block this year. Two of them are already closed. One is somehow always full.",
+      "The L train is a negotiation. Today the terms were acceptable.",
+      "Everyone here is working on something. The barista, the guy at the next table, the woman who just walked past with the portfolio. The city hums with adjacent ambition."
+    ]
+  },
+  {
+    "id": "upper_east_side",
+    "label": "Upper East Side",
+    "borough": "Manhattan",
+    "weeklyRent": 1100,
+    "vibeBonus": { "stat": "clout", "delta": 15, "period": "weekly" },
+    "penalty": { "description": "Happiness gains from community events are reduced.", "flag": "low_community_happiness" },
+    "flavorText": "The doorman knows your coffee order. You're not sure how you feel about that.",
+    "neighborhoodObservations": [
+      "The doorman at the building across the street knows your name. You're not sure when that happened. You're not sure how you feel about it.",
+      "It is quiet up here in a way that takes getting used to. Not peaceful — contained.",
+      "The dry cleaner on 82nd pressed your shirt and remembered your preferences from two months ago. There is a version of this city that is very well-organised.",
+      "Central Park is three blocks away. You forget this some weeks. Today you remembered. You went. It helped.",
+      "Someone left a very good coat in the lobby. It was there in the morning, gone by evening. The building says nothing.",
+      "The grocery store here has a section called 'artisan provisions.' It has cheese from seven countries. You bought two kinds. It was fine and also too expensive and also fine.",
+      "Up here the buildings are taller and the streets are quieter and the feeling is not quite relaxation and not quite comfort but something in between that the city is very good at selling.",
+      "The Metropolitan Museum is four blocks away and you haven't been in six weeks. This is New York: proximity to greatness, constant deferral of it."
+    ]
+  }
+]
