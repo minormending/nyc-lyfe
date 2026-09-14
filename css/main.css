@@ -18,8 +18,12 @@
   /* Stat colors */
   --color-money:     #4CAF50;
   --color-energy:    #F4A623;
-  --color-happiness: #E91E8C;
-  --color-clout:     #9C27B0;
+  /* Both were under the 4.5:1 AA asks of body text against the app's dark
+     ground (#16213E): happiness at 3.80 and clout at 2.52, and clout is the
+     one that labels a whole stat bar. Lightened rather than darkened, because
+     this is a dark theme — 4.77 and 4.76 measured. */
+  --color-happiness: #EE4FA5;
+  --color-clout:     #CA62DC;
 
   /* Class accent colors */
   --color-class-rich:      #C0A060;

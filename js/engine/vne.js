@@ -459,8 +459,8 @@ function _cleanup() {
 const EFFECT_COLORS = {
   money:     '#4CAF50',
   energy:    '#F4A623',
-  happiness: '#E91E8C',
-  clout:     '#9C27B0',
+  happiness: '#EE4FA5',
+  clout:     '#CA62DC',
 };
 
 /**
@@ -495,7 +495,7 @@ function _formatEffects(fx) {
     parts.push(`<span style="color:${color}">${name} ${sign}${fx.npc.delta}</span>`);
   }
   if (fx.unlock) {
-    parts.push(`<span style="color:#9C27B0">Unlocks: ${fx.unlock.replace(/_/g, ' ')}</span>`);
+    parts.push(`<span style="color:#CA62DC">Unlocks: ${fx.unlock.replace(/_/g, ' ')}</span>`);
   }
 
   return parts.join(' <span style="color:#556;font-size:10px">·</span> ');

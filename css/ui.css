@@ -1242,6 +1242,13 @@
   color: var(--color-text-muted);
   font-size: 18px;
   cursor: pointer;
+  /* The glyph is 18px and the button was 22x26 — under the 24x24 a pointer
+     needs (WCAG 2.5.8), on the one control that closes this panel. */
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
   padding: 4px;
   z-index: 1;
